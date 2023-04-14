@@ -1,6 +1,6 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
-import { getFiltersFromSearchParams } from "../utils";
+import Pagination from "./pagination";
 
 const GET_CHARACTERS = gql`
   query GetCharacters($page: Int, $filter: FilterCharacter) {
@@ -18,13 +18,9 @@ const GET_CHARACTERS = gql`
   }
 `;
 
-export default function Gallery() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const page = parseInt(searchParams.get("page")) || 1;
-  const filter = getFiltersFromSearchParams(searchParams);
-
+export default function Gallery({ filters, page, onNavigateToPage }) {
   const { loading, error, data } = useQuery(GET_CHARACTERS, {
-    variables: { page, filter },
+    variables: { page, filter: filters },
   });
 
   if (loading) return <p>Loading...</p>;
@@ -48,23 +44,11 @@ export default function Gallery() {
           </div>
         ))}
       </div>
-      <div className="pagination">
-        <button
-          onClick={() => setSearchParams({ ...filter, page: page - 1 })}
-          disabled={page === 1}
-        >
-          Previous
-        </button>
-        <div className="page-number">
-          page {page} of {data.characters.info.pages}
-        </div>
-        <button
-          onClick={() => setSearchParams({ ...filter, page: page + 1 })}
-          disabled={page === data.characters.info.pages}
-        >
-          Next
-        </button>
-      </div>
+      <Pagination
+        page={page}
+        totalPages={data.characters.info.pages}
+        onNavigate={onNavigateToPage}
+      />
     </>
   );
 }

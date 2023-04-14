@@ -1,28 +1,40 @@
-import { Form, useSearchParams } from "react-router-dom";
-import { getFiltersFromSearchParams } from "../utils";
+import { useEffect } from "react";
+import { Form } from "react-router-dom";
 import { FILTERS } from "../utils";
 
-export default function Filters() {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const filterValues = getFiltersFromSearchParams(searchParams);
+export default function Filters({
+  name,
+  status,
+  species,
+  type,
+  gender,
+  onSubmit,
+}) {
+  useEffect(() => {
+    //restore form values when using the Back button in the browser
+    document.getElementById("name").value = name || "";
+    document.getElementById("status").value = status || "";
+    document.getElementById("species").value = species || "";
+    document.getElementById("type").value = type || "";
+    document.getElementById("gender").value = gender || "";
+  }, [name, status, species, type, gender]);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    // remove empty values from form data
     const params = {};
+    // remove empty values from form data
     FILTERS.forEach((filter) => {
       const filterValue = e.target[filter].value;
       if (filterValue) {
         params[filter] = filterValue;
       }
     });
-    setSearchParams(params);
+    onSubmit(params);
   }
 
   function handleReset() {
-    setSearchParams({});
+    onSubmit({});
   }
 
   return (
@@ -40,16 +52,11 @@ export default function Filters() {
           </legend>
           <label htmlFor="name">Name</label>
           <br />
-          <input
-            id="name"
-            type="search"
-            name="name"
-            defaultValue={filterValues.name}
-          />
+          <input id="name" type="search" name="name" defaultValue={name} />
           <br />
           <label htmlFor="status">Status</label>
           <br />
-          <select id="status" name="status" defaultValue={filterValues.status}>
+          <select id="status" name="status" defaultValue={status}>
             <option value=""></option>
             <option value="Alive">Alive</option>
             <option value="Dead">Dead</option>
@@ -62,21 +69,16 @@ export default function Filters() {
             id="species"
             type="text"
             name="species"
-            defaultValue={filterValues.species}
+            defaultValue={species}
           />
           <br />
           <label htmlFor="type">Type</label>
           <br />
-          <input
-            id="type"
-            type="text"
-            name="type"
-            defaultValue={filterValues.type}
-          />
+          <input id="type" type="text" name="type" defaultValue={type} />
           <br />
           <label htmlFor="gender">Gender</label>
           <br />
-          <select id="gender" name="gender" defaultValue={filterValues.gender}>
+          <select id="gender" name="gender" defaultValue={gender}>
             <option value=""></option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
