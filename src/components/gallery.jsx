@@ -47,7 +47,7 @@ export default function Gallery({ filters, page, onNavigateToPage }) {
       <Pagination
         page={page}
         totalPages={data.characters.info.pages}
-        onNavigate={onNavigateToPage}
+        onNavigateToPage={onNavigateToPage}
       />
     </>
   );

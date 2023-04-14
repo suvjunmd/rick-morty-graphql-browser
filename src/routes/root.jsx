@@ -13,16 +13,13 @@ export default function Root() {
   }
 
   function handleNavigateToPage(page) {
-    setSearchParams(...filters, page);
+    setSearchParams({ ...filters, page });
   }
 
   return (
     <>
       <h1>Rick and Morty GraphQL browser</h1>
-      <Filters
-        onSubmit={handleFilterSubmit}
-        {...filters}
-      />
+      <Filters onSubmit={handleFilterSubmit} {...filters} />
       <Gallery
         filters={filters}
         page={page}
