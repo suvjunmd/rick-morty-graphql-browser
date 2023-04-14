@@ -32,3 +32,18 @@
     color: black;
     font-size: 20px;
 }
+
+.filter-form {
+    max-width: fit-content;
+    margin-bottom: 1rem;
+}
+
+.pagination {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.page-number {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
