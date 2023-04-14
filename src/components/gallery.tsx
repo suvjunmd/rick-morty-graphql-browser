@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, gql, ApolloError } from "@apollo/client";
 import Pagination from "./pagination";
 import { FilterConfig } from "../utils";
 
@@ -7,6 +7,31 @@ interface GalleryProps {
   filters: FilterConfig;
   page: number;
   onNavigateToPage: (page: number) => void;
+}
+
+interface QueryResponse {
+  loading: boolean;
+  error?: ApolloError | undefined;
+  data?: QueryData;
+}
+interface QueryData {
+  characters: QueryCharacters;
+}
+
+interface QueryCharacters {
+  info: QueryInfo;
+  results: CharacterResult[];
+}
+
+interface QueryInfo {
+  pages: number;
+}
+
+interface CharacterResult {
+  id: number;
+  name: string;
+  status: string;
+  image: string;
 }
 
 const GET_CHARACTERS = gql`
@@ -30,13 +55,15 @@ export default function Gallery({
   page,
   onNavigateToPage,
 }: GalleryProps) {
-  const { loading, error, data } = useQuery(GET_CHARACTERS, {
+  const queryResponse: QueryResponse = useQuery(GET_CHARACTERS, {
     variables: { page, filter: filters },
   });
 
+  const { loading, error, data } = queryResponse;
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  if (data.characters.results.length === 0) return <p>No results</p>;
+  if (!data || data.characters.results.length === 0) return <p>No results</p>;
 
   return (
     <>
