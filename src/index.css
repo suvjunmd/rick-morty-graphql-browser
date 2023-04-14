@@ -1,0 +1,34 @@
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.gallery-item:has(span.alive) {
+    background: linear-gradient(0deg, #388E3C, #4CAF50);
+}
+
+.gallery-item:has(span.dead) {
+    background: linear-gradient(0deg, #D32F2F, #F44336);
+}
+
+.gallery-item:has(span.unknown) {
+    background: linear-gradient(0deg, #1976D2, #2196F3);
+}
+
+.gallery-item > img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery-item a {
+    color: black;
+    font-size: 20px;
+}
