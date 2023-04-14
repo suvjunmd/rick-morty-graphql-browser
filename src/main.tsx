@@ -1,11 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import "./index.css";
 import ErrorPage from "./error-page";
 import Details from "./routes/details";
@@ -19,7 +15,7 @@ const router = createHashRouter([
   },
   {
     path: "characters/:characterId",
-    element: <Details />
+    element: <Details />,
   },
 ]);
 
@@ -28,7 +24,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <RouterProvider router={router} />

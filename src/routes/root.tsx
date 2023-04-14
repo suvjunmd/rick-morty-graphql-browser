@@ -1,19 +1,19 @@
-import { useSearchParams } from "react-router-dom";
+import { URLSearchParamsInit, useSearchParams } from "react-router-dom";
 import Filters from "../components/filters";
 import Gallery from "../components/gallery";
-import { getFiltersFromSearchParams } from "../utils";
+import { getFiltersFromSearchParams, FilterConfig } from "../utils";
 
 export default function Root() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const page = parseInt(searchParams.get("page")) || 1;
+  const page = parseInt(searchParams.get("page") || "1");
   const filters = getFiltersFromSearchParams(searchParams);
 
-  function handleFilterSubmit(values) {
-    setSearchParams(values);
+  function handleFilterSubmit(values: FilterConfig) {
+    setSearchParams(values as Record<string, string>);
   }
 
-  function handleNavigateToPage(page) {
-    setSearchParams({ ...filters, page });
+  function handleNavigateToPage(page: number) {
+    setSearchParams({ ...filters, page: page.toString() } as Record<string, string>);
   }
 
   return (

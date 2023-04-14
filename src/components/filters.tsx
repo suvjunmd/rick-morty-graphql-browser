@@ -1,6 +1,15 @@
-import { useEffect } from "react";
+import { FormEvent, useEffect } from "react";
 import { Form } from "react-router-dom";
-import { FILTERS } from "../utils";
+import { FILTERS, FilterConfig } from "../utils";
+
+interface FiltersProps {
+  name?: string;
+  status?: string;
+  species?: string;
+  type?: string;
+  gender?: string;
+  onSubmit: (config: FilterConfig) => void;
+}
 
 export default function Filters({
   name,
@@ -9,25 +18,28 @@ export default function Filters({
   type,
   gender,
   onSubmit,
-}) {
+}: FiltersProps) {
   useEffect(() => {
     //restore form values when using the Back button in the browser
-    document.getElementById("name").value = name || "";
-    document.getElementById("status").value = status || "";
-    document.getElementById("species").value = species || "";
-    document.getElementById("type").value = type || "";
-    document.getElementById("gender").value = gender || "";
+    (document.getElementById("name") as HTMLInputElement).value = name || "";
+    (document.getElementById("status") as HTMLInputElement).value =
+      status || "";
+    (document.getElementById("species") as HTMLInputElement).value =
+      species || "";
+    (document.getElementById("type") as HTMLInputElement).value = type || "";
+    (document.getElementById("gender") as HTMLInputElement).value =
+      gender || "";
   }, [name, status, species, type, gender]);
 
-  function handleSubmit(e) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const params = {};
+    const params = {} as FilterConfig;
     // remove empty values from form data
     FILTERS.forEach((filter) => {
-      const filterValue = e.target[filter].value;
+      const filterValue = e.currentTarget[filter].value;
       if (filterValue) {
-        params[filter] = filterValue;
+        params[filter as keyof FilterConfig] = filterValue;
       }
     });
     onSubmit(params);

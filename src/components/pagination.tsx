@@ -1,4 +1,14 @@
-export default function Pagination({page, totalPages, onNavigateToPage}) {
+interface PaginationProps {
+  page: number;
+  totalPages: number;
+  onNavigateToPage: (page: number) => void;
+}
+
+export default function Pagination({
+  page,
+  totalPages,
+  onNavigateToPage,
+}: PaginationProps) {
   return (
     <div className="pagination">
       <button onClick={() => onNavigateToPage(page - 1)} disabled={page === 1}>
