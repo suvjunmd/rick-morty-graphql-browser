@@ -1,1 +1,1 @@
-# rick-morty-graphql-browser
+# Rick and Morty GraphQL browser
