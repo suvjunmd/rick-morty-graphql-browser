@@ -6,15 +6,19 @@ import { getFilterConfig, FilterConfig } from "../utils";
 export default function Root() {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = parseInt(searchParams.get("page") || "1");
-  // const filters = getFiltersFromSearchParams(searchParams);
-  const filterConfig = getFilterConfig((item) => searchParams.get(item));
+  const filterConfig = getFilterConfig(
+    (item) => searchParams.get(item) || undefined
+  );
 
   function handleFilterSubmit(values: FilterConfig) {
     setSearchParams(values as Record<string, string>);
   }
 
   function handleNavigateToPage(page: number) {
-    setSearchParams({ ...filterConfig, page: page.toString() } as Record<string, string>);
+    setSearchParams({ ...filterConfig, page: page.toString() } as Record<
+      string,
+      string
+    >);
   }
 
   return (

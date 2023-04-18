@@ -35,7 +35,7 @@ export default function Filters({
     e.preventDefault();
     
     // remove empty values from form data
-    const filterConfig = getFilterConfig((item) => e.currentTarget[item].value);
+    const filterConfig = getFilterConfig((item) => e.currentTarget[item]?.value);
     
     onSubmit(filterConfig);
   }

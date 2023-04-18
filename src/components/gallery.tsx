@@ -34,7 +34,7 @@ interface CharacterResult {
   image: string;
 }
 
-const GET_CHARACTERS = gql`
+export const GET_CHARACTERS_QUERY = gql`
   query GetCharacters($page: Int, $filter: FilterCharacter) {
     characters(page: $page, filter: $filter) {
       info {
@@ -55,7 +55,7 @@ export default function Gallery({
   page,
   onNavigateToPage,
 }: GalleryProps) {
-  const queryResponse: QueryResponse = useQuery(GET_CHARACTERS, {
+  const queryResponse: QueryResponse = useQuery(GET_CHARACTERS_QUERY, {
     variables: { page, filter: filterConfig },
   });
 

@@ -1,0 +1,78 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render disabled Next button on last page 1`] = `
+<div>
+  <div
+    class="pagination"
+  >
+    <button>
+      Previous
+    </button>
+    <div
+      class="page-number"
+    >
+      page 
+      10
+       of 
+      10
+    </div>
+    <button
+      disabled=""
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;
+
+exports[`should render disabled Previous button on first page 1`] = `
+<div>
+  <div
+    class="pagination"
+  >
+    <button
+      disabled=""
+    >
+      Previous
+    </button>
+    <div
+      class="page-number"
+    >
+      page 
+      1
+       of 
+      10
+    </div>
+    <button>
+      Next
+    </button>
+  </div>
+</div>
+`;
+
+exports[`should render pagination 1`] = `
+<div>
+  <div
+    class="pagination"
+  >
+    <button
+      disabled=""
+    >
+      Previous
+    </button>
+    <div
+      class="page-number"
+    >
+      page 
+      1
+       of 
+      1
+    </div>
+    <button
+      disabled=""
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;

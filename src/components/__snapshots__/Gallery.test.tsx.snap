@@ -1,0 +1,98 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render gallery 1`] = `
+<div>
+  <div
+    class="gallery"
+  >
+    <div
+      class="gallery-item"
+    >
+      <p>
+        <a
+          href="/characters/1"
+        >
+          1
+           - 
+          Rick Sanchez
+        </a>
+        <span
+          class="alive"
+        />
+      </p>
+      <img
+        alt=""
+        height="200"
+        src="1.jpeg"
+        width="200"
+      />
+    </div>
+    <div
+      class="gallery-item"
+    >
+      <p>
+        <a
+          href="/characters/2"
+        >
+          2
+           - 
+          Morty Smith
+        </a>
+        <span
+          class="dead"
+        />
+      </p>
+      <img
+        alt=""
+        height="200"
+        src="2.jpeg"
+        width="200"
+      />
+    </div>
+    <div
+      class="gallery-item"
+    >
+      <p>
+        <a
+          href="/characters/3"
+        >
+          3
+           - 
+          Summer Smith
+        </a>
+        <span
+          class="unknown"
+        />
+      </p>
+      <img
+        alt=""
+        height="200"
+        src="3.jpeg"
+        width="200"
+      />
+    </div>
+  </div>
+  <div
+    class="pagination"
+  >
+    <button
+      disabled=""
+    >
+      Previous
+    </button>
+    <div
+      class="page-number"
+    >
+      page 
+      1
+       of 
+      1
+    </div>
+    <button
+      disabled=""
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;

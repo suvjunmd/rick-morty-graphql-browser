@@ -1,0 +1,81 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render character 1`] = `
+<div>
+  <div>
+    <h3>
+      1
+       - 
+      Rick
+    </h3>
+    <img
+      alt=""
+      height="300"
+      src="1.jpeg"
+      width="300"
+    />
+    <p>
+      <b>
+        ID:
+      </b>
+       
+      1
+    </p>
+    <p>
+      <b>
+        Name:
+      </b>
+       
+      Rick
+    </p>
+    <p>
+      <b>
+        Status:
+      </b>
+       
+      Alive
+    </p>
+    <p>
+      <b>
+        Species:
+      </b>
+       
+      Human
+    </p>
+    <p>
+      <b>
+        Type:
+      </b>
+       
+    </p>
+    <p>
+      <b>
+        Gender:
+      </b>
+       
+      Male
+    </p>
+    <p>
+      <b>
+        Origin:
+      </b>
+       
+      Earth (C-137)
+    </p>
+    <p>
+      <b>
+        Location:
+      </b>
+       
+      Citadel of Ricks
+    </p>
+    <p>
+      <b>
+        Created:
+      </b>
+       
+      11/4/2022, 8:48:46 PM
+    </p>
+  </div>
+</div>
+`;

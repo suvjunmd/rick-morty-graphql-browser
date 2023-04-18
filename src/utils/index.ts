@@ -7,7 +7,7 @@ export interface FilterConfig {
 }
 
 export function getFilterConfig(
-  getter: (item: string) => string | null
+  getter: (item: string) => string | undefined
 ): FilterConfig {
   const filterNames = ["name", "status", "species", "type", "gender"];
   const filters: FilterConfig = {};

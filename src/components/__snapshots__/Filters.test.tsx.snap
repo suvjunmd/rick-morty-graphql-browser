@@ -1,0 +1,140 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render filters 1`] = `
+<div>
+  <div>
+    <form
+      action="/"
+      class="filter-form"
+      id="filter-form"
+      method="get"
+      role="search"
+    >
+      <fieldset>
+        <legend>
+          <b>
+            Filters
+          </b>
+        </legend>
+        <label
+          for="name"
+        >
+          Name
+        </label>
+        <br />
+        <input
+          id="name"
+          name="name"
+          type="search"
+          value=""
+        />
+        <br />
+        <label
+          for="status"
+        >
+          Status
+        </label>
+        <br />
+        <select
+          id="status"
+          name="status"
+        >
+          <option
+            selected=""
+            value=""
+          />
+          <option
+            value="Alive"
+          >
+            Alive
+          </option>
+          <option
+            value="Dead"
+          >
+            Dead
+          </option>
+          <option
+            value="unknown"
+          >
+            unknown
+          </option>
+        </select>
+        <br />
+        <label
+          for="species"
+        >
+          Species
+        </label>
+        <br />
+        <input
+          id="species"
+          name="species"
+          type="text"
+          value=""
+        />
+        <br />
+        <label
+          for="type"
+        >
+          Type
+        </label>
+        <br />
+        <input
+          id="type"
+          name="type"
+          type="text"
+          value=""
+        />
+        <br />
+        <label
+          for="gender"
+        >
+          Gender
+        </label>
+        <br />
+        <select
+          id="gender"
+          name="gender"
+        >
+          <option
+            selected=""
+            value=""
+          />
+          <option
+            value="Male"
+          >
+            Male
+          </option>
+          <option
+            value="Female"
+          >
+            Female
+          </option>
+          <option
+            value="Genderless"
+          >
+            Genderless
+          </option>
+          <option
+            value="unknown"
+          >
+            unknown
+          </option>
+        </select>
+        <br />
+        <br />
+        <button
+          type="submit"
+        >
+          Filter
+        </button>
+        <button
+          type="reset"
+        >
+          Reset
+        </button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+`;
