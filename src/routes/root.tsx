@@ -1,27 +1,28 @@
-import { URLSearchParamsInit, useSearchParams } from "react-router-dom";
-import Filters from "../components/filters";
-import Gallery from "../components/gallery";
-import { getFiltersFromSearchParams, FilterConfig } from "../utils";
+import { useSearchParams } from "react-router-dom";
+import Filters from "../components/Filters";
+import Gallery from "../components/Gallery";
+import { getFilterConfig, FilterConfig } from "../utils";
 
 export default function Root() {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = parseInt(searchParams.get("page") || "1");
-  const filters = getFiltersFromSearchParams(searchParams);
+  // const filters = getFiltersFromSearchParams(searchParams);
+  const filterConfig = getFilterConfig((item) => searchParams.get(item));
 
   function handleFilterSubmit(values: FilterConfig) {
     setSearchParams(values as Record<string, string>);
   }
 
   function handleNavigateToPage(page: number) {
-    setSearchParams({ ...filters, page: page.toString() } as Record<string, string>);
+    setSearchParams({ ...filterConfig, page: page.toString() } as Record<string, string>);
   }
 
   return (
     <>
       <h1>Rick and Morty GraphQL browser</h1>
-      <Filters onSubmit={handleFilterSubmit} {...filters} />
+      <Filters onSubmit={handleFilterSubmit} {...filterConfig} />
       <Gallery
-        filters={filters}
+        filterConfig={filterConfig}
         page={page}
         onNavigateToPage={handleNavigateToPage}
       />

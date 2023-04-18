@@ -1,6 +1,6 @@
 import { FormEvent, useEffect } from "react";
 import { Form } from "react-router-dom";
-import { FILTERS, FilterConfig } from "../utils";
+import { FilterConfig, getFilterConfig } from "../utils";
 
 interface FiltersProps {
   name?: string;
@@ -33,16 +33,11 @@ export default function Filters({
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    const params = {} as FilterConfig;
+    
     // remove empty values from form data
-    FILTERS.forEach((filter) => {
-      const filterValue = e.currentTarget[filter].value;
-      if (filterValue) {
-        params[filter as keyof FilterConfig] = filterValue;
-      }
-    });
-    onSubmit(params);
+    const filterConfig = getFilterConfig((item) => e.currentTarget[item].value);
+    
+    onSubmit(filterConfig);
   }
 
   function handleReset() {

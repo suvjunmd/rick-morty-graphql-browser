@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useQuery, gql, ApolloError } from "@apollo/client";
-import Pagination from "./pagination";
+import Pagination from "./Pagination";
 import { FilterConfig } from "../utils";
 
 interface GalleryProps {
-  filters: FilterConfig;
+  filterConfig: FilterConfig;
   page: number;
   onNavigateToPage: (page: number) => void;
 }
@@ -51,12 +51,12 @@ const GET_CHARACTERS = gql`
 `;
 
 export default function Gallery({
-  filters,
+  filterConfig,
   page,
   onNavigateToPage,
 }: GalleryProps) {
   const queryResponse: QueryResponse = useQuery(GET_CHARACTERS, {
-    variables: { page, filter: filters },
+    variables: { page, filter: filterConfig },
   });
 
   const { loading, error, data } = queryResponse;
