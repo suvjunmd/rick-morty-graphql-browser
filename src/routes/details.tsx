@@ -1,5 +1,36 @@
 import { useParams } from "react-router-dom";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, gql, ApolloError } from "@apollo/client";
+
+interface QueryResponse {
+  loading: boolean;
+  error?: ApolloError | undefined;
+  data?: QueryData;
+}
+
+interface QueryData {
+  character: QueryCharacter;
+}
+
+interface QueryCharacter {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  origin: CharacterOrigin;
+  location: CharacterLocation;
+  image: string;
+  created: string;
+}
+
+interface CharacterOrigin {
+  name: string;
+}
+
+interface CharacterLocation {
+  name: string;
+}
 
 const GET_CHARACTER = gql`
   query GetCharacter($id: ID!) {
@@ -24,12 +55,15 @@ const GET_CHARACTER = gql`
 
 export default function Details() {
   const { characterId } = useParams();
-  const { loading, error, data } = useQuery(GET_CHARACTER, {
+  const queryResponse: QueryResponse = useQuery(GET_CHARACTER, {
     variables: { id: characterId },
   });
 
+  const { loading, error, data } = queryResponse;
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
+  if (!data) return <p>No results</p>;
 
   return (
     <div>
