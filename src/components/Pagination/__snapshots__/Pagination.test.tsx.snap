@@ -3,13 +3,13 @@
 exports[`should render disabled Next button on last page 1`] = `
 <div>
   <div
-    class="pagination"
+    class="_pagination_4a2aa2"
   >
     <button>
       Previous
     </button>
     <div
-      class="page-number"
+      class="_pageNumber_4a2aa2"
     >
       page 
       10
@@ -28,7 +28,7 @@ exports[`should render disabled Next button on last page 1`] = `
 exports[`should render disabled Previous button on first page 1`] = `
 <div>
   <div
-    class="pagination"
+    class="_pagination_4a2aa2"
   >
     <button
       disabled=""
@@ -36,7 +36,7 @@ exports[`should render disabled Previous button on first page 1`] = `
       Previous
     </button>
     <div
-      class="page-number"
+      class="_pageNumber_4a2aa2"
     >
       page 
       1
@@ -53,7 +53,7 @@ exports[`should render disabled Previous button on first page 1`] = `
 exports[`should render pagination 1`] = `
 <div>
   <div
-    class="pagination"
+    class="_pagination_4a2aa2"
   >
     <button
       disabled=""
@@ -61,7 +61,7 @@ exports[`should render pagination 1`] = `
       Previous
     </button>
     <div
-      class="page-number"
+      class="_pageNumber_4a2aa2"
     >
       page 
       1

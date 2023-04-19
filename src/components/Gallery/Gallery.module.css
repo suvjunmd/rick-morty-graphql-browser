@@ -1,0 +1,34 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.statusAlive {
+  background: linear-gradient(0deg, #388e3c, #4caf50);
+}
+
+.statusDead {
+  background: linear-gradient(0deg, #d32f2f, #f44336);
+}
+
+.statusUnknown {
+  background: linear-gradient(0deg, #1976d2, #2196f3);
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.link {
+  color: black;
+  font-size: 20px;
+}

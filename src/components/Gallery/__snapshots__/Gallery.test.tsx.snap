@@ -3,69 +3,66 @@
 exports[`should render gallery 1`] = `
 <div>
   <div
-    class="gallery"
+    class="_container_651eac"
   >
     <div
-      class="gallery-item"
+      class="_card_651eac _statusAlive_651eac"
     >
       <p>
         <a
+          class="_link_651eac"
           href="/characters/1"
         >
           1
            - 
           Rick Sanchez
         </a>
-        <span
-          class="alive"
-        />
       </p>
       <img
         alt=""
+        class="_image_651eac"
         height="200"
         src="1.jpeg"
         width="200"
       />
     </div>
     <div
-      class="gallery-item"
+      class="_card_651eac _statusDead_651eac"
     >
       <p>
         <a
+          class="_link_651eac"
           href="/characters/2"
         >
           2
            - 
           Morty Smith
         </a>
-        <span
-          class="dead"
-        />
       </p>
       <img
         alt=""
+        class="_image_651eac"
         height="200"
         src="2.jpeg"
         width="200"
       />
     </div>
     <div
-      class="gallery-item"
+      class="_card_651eac _statusUnknown_651eac"
     >
       <p>
         <a
+          class="_link_651eac"
           href="/characters/3"
         >
           3
            - 
           Summer Smith
         </a>
-        <span
-          class="unknown"
-        />
       </p>
       <img
         alt=""
+        class="_image_651eac"
         height="200"
         src="3.jpeg"
         width="200"
@@ -73,7 +70,7 @@ exports[`should render gallery 1`] = `
     </div>
   </div>
   <div
-    class="pagination"
+    class="_pagination_4a2aa2"
   >
     <button
       disabled=""
@@ -81,7 +78,7 @@ exports[`should render gallery 1`] = `
       Previous
     </button>
     <div
-      class="page-number"
+      class="_pageNumber_4a2aa2"
     >
       page 
       1

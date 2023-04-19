@@ -1,3 +1,5 @@
+import styles from './Pagination.module.css';
+
 interface PaginationProps {
   page: number;
   totalPages: number;
@@ -10,11 +12,11 @@ export default function Pagination({
   onNavigateToPage,
 }: PaginationProps) {
   return (
-    <div className="pagination">
+    <div className={styles.pagination}>
       <button onClick={() => onNavigateToPage(page - 1)} disabled={page === 1}>
         Previous
       </button>
-      <div className="page-number">
+      <div className={styles.pageNumber}>
         page {page} of {totalPages}
       </div>
       <button

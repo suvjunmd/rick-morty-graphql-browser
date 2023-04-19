@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useQuery, gql, ApolloError } from "@apollo/client";
-import Pagination from "./Pagination";
-import { FilterConfig } from "../utils";
+import Pagination from "../Pagination";
+import { FilterConfig } from "../../utils";
+import styles from "./Gallery.module.css";
 
 interface GalleryProps {
   filterConfig: FilterConfig;
@@ -67,18 +68,28 @@ export default function Gallery({
 
   return (
     <>
-      <div className="gallery">
+      <div className={styles.container}>
         {data.characters.results.map(({ id, name, status, image }) => (
-          <div className="gallery-item" key={id}>
+          <div
+            className={`${styles.card} ${
+              status === "Alive" ? styles.statusAlive : ""
+            }${status === "Dead" ? styles.statusDead : ""}${
+              status === "unknown" ? styles.statusUnknown : ""
+            }`}
+            key={id}
+          >
             <p>
-              <Link to={`/characters/${id}`}>
+              <Link to={`/characters/${id}`} className={styles.link}>
                 {id} - {name}
               </Link>
-              {status === "Alive" && <span className="alive" />}
-              {status === "Dead" && <span className="dead" />}
-              {status === "unknown" && <span className="unknown" />}
             </p>
-            <img width="200" height="200" alt="" src={`${image}`} />
+            <img
+              width="200"
+              height="200"
+              alt=""
+              src={image}
+              className={styles.image}
+            />
           </div>
         ))}
       </div>

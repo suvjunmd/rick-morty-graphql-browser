@@ -1,6 +1,7 @@
 import { FormEvent } from "react";
 import { Form } from "react-router-dom";
-import { FilterConfig, getFilterConfig } from "../utils";
+import { FilterConfig, getFilterConfig } from "../../utils";
+import styles from './Filters.module.css';
 
 interface FiltersProps {
   name?: string;
@@ -37,7 +38,7 @@ export default function Filters({
       <Form
         id="filter-form"
         role="search"
-        className="filter-form"
+        className={styles.form}
         onSubmit={handleSubmit}
         onReset={handleReset}
       >

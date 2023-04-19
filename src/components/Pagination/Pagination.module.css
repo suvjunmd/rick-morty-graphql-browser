@@ -1,0 +1,10 @@
+.pagination {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.pageNumber {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}

@@ -1,5 +1,6 @@
 
 import { useQuery, gql, ApolloError } from "@apollo/client";
+import styles from './Character.module.css';
 
 interface CharacterProps {
   id: string;
@@ -69,8 +70,8 @@ export default function Character({ id }: CharacterProps) {
   if (!data) return <p>No results</p>;
 
   return (
-    <div className="character-container">
-      <h1>
+    <div className={styles.container}>
+      <h1 className={styles.name}>
         {data.character.name}
       </h1>
       <img width="300" height="300" alt="" src={`${data.character.image}`} />

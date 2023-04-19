@@ -3,9 +3,11 @@
 exports[`should render character 1`] = `
 <div>
   <div
-    class="character-container"
+    class="_container_124936"
   >
-    <h1>
+    <h1
+      class="_name_124936"
+    >
       Rick
     </h1>
     <img

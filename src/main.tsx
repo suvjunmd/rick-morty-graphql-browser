@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import "./index.css";
+import "./styles/global.css";
 import ErrorPage from "./routes/error-page";
 import Details from "./routes/details";
 import Root from "./routes/root";
