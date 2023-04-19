@@ -1,3 +1,7 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -41,9 +45,21 @@
 .pagination {
     display: flex;
     margin-top: 1rem;
+    justify-content: center;
 }
 
 .page-number {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+}
+
+.character-container {
+    max-width: 100%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.character-container h1 {
+    text-align: center;
 }

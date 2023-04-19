@@ -2,12 +2,12 @@
 
 exports[`should render character 1`] = `
 <div>
-  <div>
-    <h3>
-      1
-       - 
+  <div
+    class="character-container"
+  >
+    <h1>
       Rick
-    </h3>
+    </h1>
     <img
       alt=""
       height="300"
@@ -20,13 +20,6 @@ exports[`should render character 1`] = `
       </b>
        
       1
-    </p>
-    <p>
-      <b>
-        Name:
-      </b>
-       
-      Rick
     </p>
     <p>
       <b>

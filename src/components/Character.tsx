@@ -69,16 +69,13 @@ export default function Character({ id }: CharacterProps) {
   if (!data) return <p>No results</p>;
 
   return (
-    <div>
-      <h3>
-        {data.character.id} - {data.character.name}
-      </h3>
+    <div className="character-container">
+      <h1>
+        {data.character.name}
+      </h1>
       <img width="300" height="300" alt="" src={`${data.character.image}`} />
       <p>
         <b>ID:</b> {data.character.id}
-      </p>
-      <p>
-        <b>Name:</b> {data.character.name}
       </p>
       <p>
         <b>Status:</b> {data.character.status}
