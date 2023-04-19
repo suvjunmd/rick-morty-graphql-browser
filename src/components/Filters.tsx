@@ -1,4 +1,4 @@
-import { FormEvent, useEffect } from "react";
+import { FormEvent } from "react";
 import { Form } from "react-router-dom";
 import { FilterConfig, getFilterConfig } from "../utils";
 
@@ -19,18 +19,6 @@ export default function Filters({
   gender,
   onSubmit,
 }: FiltersProps) {
-  useEffect(() => {
-    //restore form values when using the Back button in the browser
-    (document.getElementById("name") as HTMLInputElement).value = name || "";
-    (document.getElementById("status") as HTMLInputElement).value =
-      status || "";
-    (document.getElementById("species") as HTMLInputElement).value =
-      species || "";
-    (document.getElementById("type") as HTMLInputElement).value = type || "";
-    (document.getElementById("gender") as HTMLInputElement).value =
-      gender || "";
-  }, [name, status, species, type, gender]);
-
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     

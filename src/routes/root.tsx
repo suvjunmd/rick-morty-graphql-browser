@@ -24,7 +24,11 @@ export default function Root() {
   return (
     <>
       <h1>Rick and Morty GraphQL browser</h1>
-      <Filters onSubmit={handleFilterSubmit} {...filterConfig} />
+      <Filters
+        key={searchParams.toString()}
+        onSubmit={handleFilterSubmit}
+        {...filterConfig}
+      />
       <Gallery
         filterConfig={filterConfig}
         page={page}
