@@ -1,43 +1,12 @@
-
-import { useQuery, gql, ApolloError } from "@apollo/client";
-import styles from './Character.module.css';
+import { useQuery } from "@apollo/client";
+import styles from "./Character.module.css";
+import { graphql } from "../../gql";
 
 interface CharacterProps {
   id: string;
 }
 
-interface QueryResponse {
-  loading: boolean;
-  error?: ApolloError | undefined;
-  data?: QueryData;
-}
-
-interface QueryData {
-  character: QueryCharacter;
-}
-
-interface QueryCharacter {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: CharacterOrigin;
-  location: CharacterLocation;
-  image: string;
-  created: string;
-}
-
-interface CharacterOrigin {
-  name: string;
-}
-
-interface CharacterLocation {
-  name: string;
-}
-
-export const GET_CHARACTER_QUERY = gql`
+export const GET_CHARACTER_QUERY = graphql(`
   query GetCharacter($id: ID!) {
     character(id: $id) {
       id
@@ -56,24 +25,20 @@ export const GET_CHARACTER_QUERY = gql`
       created
     }
   }
-`;
+`);
 
 export default function Character({ id }: CharacterProps) {
-  const queryResponse: QueryResponse = useQuery(GET_CHARACTER_QUERY, {
+  const { loading, error, data } = useQuery(GET_CHARACTER_QUERY, {
     variables: { id },
   });
 
-  const { loading, error, data } = queryResponse;
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  if (!data) return <p>No results</p>;
+  if (!data || !data.character) return <p>No results</p>;
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.name}>
-        {data.character.name}
-      </h1>
+      <h1 className={styles.name}>{data.character?.name}</h1>
       <img width="300" height="300" alt="" src={`${data.character.image}`} />
       <p>
         <b>ID:</b> {data.character.id}
@@ -91,13 +56,15 @@ export default function Character({ id }: CharacterProps) {
         <b>Gender:</b> {data.character.gender}
       </p>
       <p>
-        <b>Origin:</b> {data.character.origin.name}
+        <b>Origin:</b> {data.character.origin?.name}
       </p>
       <p>
-        <b>Location:</b> {data.character.location.name}
+        <b>Location:</b> {data.character.location?.name}
       </p>
       <p>
-        <b>Created:</b> {new Date(data.character.created).toLocaleString()}
+        <b>Created:</b>{" "}
+        {data.character.created &&
+          new Date(data.character.created).toLocaleString()}
       </p>
     </div>
   );
