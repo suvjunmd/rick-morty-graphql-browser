@@ -16,6 +16,11 @@ const router = createHashRouter([
   {
     path: "characters/:characterId",
     element: <Details />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "*",
+    element: "Page not found",
   },
 ]);
 
