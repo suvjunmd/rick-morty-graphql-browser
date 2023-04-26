@@ -38,7 +38,7 @@ export default function Gallery({
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  if (!data || !data.characters) return <p>No results</p>;
+  if (!data?.characters) return <p>No results</p>;
 
   return (
     <>

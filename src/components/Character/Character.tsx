@@ -3,7 +3,7 @@ import styles from "./Character.module.css";
 import { graphql } from "../../gql";
 
 interface CharacterProps {
-  id: string;
+  id: string | undefined;
 }
 
 export const GET_CHARACTER_QUERY = graphql(`
@@ -28,13 +28,15 @@ export const GET_CHARACTER_QUERY = graphql(`
 `);
 
 export default function Character({ id }: CharacterProps) {
+  if (!id) return <p>No results</p>;
+
   const { loading, error, data } = useQuery(GET_CHARACTER_QUERY, {
     variables: { id },
   });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  if (!data || !data.character) return <p>No results</p>;
+  if (!data?.character) return <p>No results</p>;
 
   return (
     <div className={styles.container}>

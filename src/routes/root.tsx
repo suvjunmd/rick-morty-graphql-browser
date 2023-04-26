@@ -5,20 +5,19 @@ import { getFilterConfig, FilterConfig } from "../utils";
 
 export default function Root() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const page = parseInt(searchParams.get("page") || "1");
-  const filterConfig = getFilterConfig(
-    (item) => searchParams.get(item) || undefined
-  );
+  const page = parseInt(searchParams.get("page") ?? "1");
+  const filterConfig = getFilterConfig((item) => searchParams.get(item));
 
   function handleFilterSubmit(values: FilterConfig) {
-    setSearchParams(values as Record<string, string>);
+    const searchParams = new URLSearchParams(Object.entries(values));
+    setSearchParams(searchParams);
   }
 
   function handleNavigateToPage(page: number) {
-    setSearchParams({ ...filterConfig, page: page.toString() } as Record<
-      string,
-      string
-    >);
+    const searchParams = new URLSearchParams(
+      Object.entries({ ...filterConfig, page: page.toString() })
+    );
+    setSearchParams(searchParams);
   }
 
   return (
