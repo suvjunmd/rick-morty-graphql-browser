@@ -1,7 +1,7 @@
 import { expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { MockedProvider } from "@apollo/client/testing";
-import Character, { GET_CHARACTER_QUERY } from "./Character";
+import { MockedProvider } from "@apollo/client/testing/react";
+import { Character, GET_CHARACTER_QUERY } from "./Character";
 
 const mocks = [
   {
@@ -36,7 +36,7 @@ const mocks = [
 
 it("should render character", async () => {
   const { container } = render(
-    <MockedProvider mocks={mocks} addTypename={false}>
+    <MockedProvider mocks={mocks}>
       <Character id="1" />
     </MockedProvider>
   );
@@ -56,7 +56,7 @@ it("should render no results message", async () => {
     result: {},
   };
   render(
-    <MockedProvider mocks={[noResultsMock]} addTypename={false}>
+    <MockedProvider mocks={[noResultsMock]}>
       <Character id="1" />
     </MockedProvider>
   );
@@ -74,7 +74,7 @@ it("should render network error message", async () => {
     error: new Error("An error occurred"),
   };
   render(
-    <MockedProvider mocks={[errorMock]} addTypename={false}>
+    <MockedProvider mocks={[errorMock]}>
       <Character id="1" />
     </MockedProvider>
   );

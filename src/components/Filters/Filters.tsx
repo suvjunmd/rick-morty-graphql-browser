@@ -1,6 +1,6 @@
-import { FormEvent } from "react";
+import type { FormEvent } from "react";
 import { Form } from "react-router-dom";
-import { FilterConfig, getFilterConfig } from "../../utils";
+import { type FilterConfig, getFilterConfig } from "../../utils";
 import styles from './Filters.module.css';
 
 interface FiltersProps {
@@ -12,7 +12,7 @@ interface FiltersProps {
   onSubmit: (config: FilterConfig) => void;
 }
 
-export default function Filters({
+export function Filters({
   name,
   status,
   species,

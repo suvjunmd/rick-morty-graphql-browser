@@ -6,7 +6,7 @@ interface PaginationProps {
   onNavigateToPage: (page: number) => void;
 }
 
-export default function Pagination({
+export function Pagination({
   page,
   totalPages,
   onNavigateToPage,

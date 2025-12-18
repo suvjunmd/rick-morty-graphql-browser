@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client/react";
 import "./styles/global.css";
 import ErrorPage from "./routes/error-page";
 import Details from "./routes/details";
@@ -25,7 +26,7 @@ const router = createHashRouter([
 ]);
 
 const client = new ApolloClient({
-  uri: "https://rickandmortyapi.com/graphql",
+  link: new HttpLink({ uri: "https://rickandmortyapi.com/graphql" }),
   cache: new InMemoryCache(),
 });
 

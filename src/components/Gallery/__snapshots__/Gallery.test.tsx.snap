@@ -3,14 +3,14 @@
 exports[`should render gallery 1`] = `
 <div>
   <div
-    class="_container_651eac"
+    class="_container_de8620"
   >
     <div
-      class="_card_651eac _statusAlive_651eac"
+      class="_card_de8620 _statusAlive_de8620"
     >
       <p>
         <a
-          class="_link_651eac"
+          class="_link_de8620"
           href="/characters/1"
         >
           1
@@ -20,18 +20,18 @@ exports[`should render gallery 1`] = `
       </p>
       <img
         alt=""
-        class="_image_651eac"
+        class="_image_de8620"
         height="200"
         src="1.jpeg"
         width="200"
       />
     </div>
     <div
-      class="_card_651eac _statusDead_651eac"
+      class="_card_de8620 _statusDead_de8620"
     >
       <p>
         <a
-          class="_link_651eac"
+          class="_link_de8620"
           href="/characters/2"
         >
           2
@@ -41,18 +41,18 @@ exports[`should render gallery 1`] = `
       </p>
       <img
         alt=""
-        class="_image_651eac"
+        class="_image_de8620"
         height="200"
         src="2.jpeg"
         width="200"
       />
     </div>
     <div
-      class="_card_651eac _statusUnknown_651eac"
+      class="_card_de8620 _statusUnknown_de8620"
     >
       <p>
         <a
-          class="_link_651eac"
+          class="_link_de8620"
           href="/characters/3"
         >
           3
@@ -62,7 +62,7 @@ exports[`should render gallery 1`] = `
       </p>
       <img
         alt=""
-        class="_image_651eac"
+        class="_image_de8620"
         height="200"
         src="3.jpeg"
         width="200"
@@ -70,7 +70,7 @@ exports[`should render gallery 1`] = `
     </div>
   </div>
   <div
-    class="_pagination_4a2aa2"
+    class="_pagination_de4934"
   >
     <button
       disabled=""
@@ -78,7 +78,7 @@ exports[`should render gallery 1`] = `
       Previous
     </button>
     <div
-      class="_pageNumber_4a2aa2"
+      class="_pageNumber_de4934"
     >
       page 
       1

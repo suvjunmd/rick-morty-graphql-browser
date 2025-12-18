@@ -3,10 +3,10 @@
 exports[`should render character 1`] = `
 <div>
   <div
-    class="_container_124936"
+    class="_container_801122"
   >
     <h1
-      class="_name_124936"
+      class="_name_801122"
     >
       Rick
     </h1>
@@ -69,7 +69,7 @@ exports[`should render character 1`] = `
         Created:
       </b>
        
-      11/4/2022, 8:48:46 PM
+      04.11.2022, 20:48:46
     </p>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { expect, it } from "vitest";
-import { FilterConfig, getFilterConfig } from ".";
+import { type FilterConfig, getFilterConfig } from ".";
 
 it("should return full config when getter has all values", () => {
   const fullConfig: FilterConfig = {
